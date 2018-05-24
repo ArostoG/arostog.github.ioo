@@ -1,0 +1,45 @@
+<div class="left_side">
+
+
+<h2>Hi <%=@user.first_name%> <%=@user.last_name%>!</h2>
+
+
+<h4>Here are the Organizations you many join!</h4>
+<% @orgs.each do |s| %>
+    <% if s.user_id == @user.id%>
+    <p><a href="/groups/<%=s.id%>"><%=s.name%></a>| | <button><a href="/post/<%=s.id %>/delete" data-method="delete">Delete</a></button></p>
+    <p>Members <%=s.manies.length%></p>
+    <p><%=s.description%></p>
+    
+    <p>---------------------------------------------------------------</p>
+    <% else s.user_id != @user.id%>
+    <p><a href="/groups/<%=s.id%>"><%=s.name%></a></p>
+    <p>Members <%=s.manies.length%></p>
+    <p><%=s.description%></p>
+   
+    <p>---------------------------------------------------------------</p>
+    <% end %>
+<% end %>
+
+</div>
+
+<div class="right_side">
+<p class ="display02"> <a href="/users/clear">Logout</a></p>
+<% if flash[:messages] %>
+    <% flash[:messages].each  do |m| %>
+        <p class="red"> <%= m %> </p>
+    <% end %>
+<% end %>
+
+<h4>Create a new Organization!</h4>
+<form action="/users/event" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<p>Org Name</p>
+<input type="text" name="name">
+<p>Description</p>
+<input type="text" name="description">
+
+<br><br>
+<input type="submit" value="Create">
+</form>
+</div>

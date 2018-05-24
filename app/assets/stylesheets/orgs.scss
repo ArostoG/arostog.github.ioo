@@ -1,0 +1,34 @@
+// Place all the styles related to the orgs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.left_side01{
+    display: inline-block;
+    height: 800px;
+    width: 600px;
+    box-shadow: 0 0 1px 1px black;
+    
+    padding: 5px;
+}
+.left_side{
+    display: inline-block;
+    height: 800px;
+    width: 600px;
+
+    
+    padding: 5px;
+}
+.right_side{
+    display: inline-block;
+    vertical-align: top;
+    height: 450px;
+    width: 600px;
+    box-shadow: 0 0 1px 1px black;
+    
+    padding: 5px;
+}
+.display02{
+    margin-left: 550px;
+}
+.red{
+    color: red;
+}

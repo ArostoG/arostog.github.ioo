@@ -1,0 +1,29 @@
+<p class ="display02"><a href= "/groups" >Dashboard</a> | | <a href="/users/clear">Logout</a></p>
+
+<h4><%=@orgs.name%>  |  |  
+
+<% if @manie==nil%>
+<button><a href="/group/<%=@orgs.id%>" data-method="post">join Group</a></button>
+<% else %>
+<button><a href="/group/<%=@orgs.id%>/leave" data-method="patch">leave Group</a></button>
+<% end %>
+</h4>
+<p><%=@orgs.description%> </p>
+<p>---------------------------------------------------------------</p>
+<p> Created By! <%=@orgs.user.first_name%> <%=@orgs.user.last_name%></p>
+
+
+<table id="customers">
+  <thead>
+    <tr>
+      <td>Members!</td>
+    </tr>
+  </thead>
+  <tbody>
+  <%@manies.each do |u| %>
+    <tr>
+      <td> <%=u.user.first_name%> </td>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
